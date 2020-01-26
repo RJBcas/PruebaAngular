@@ -1,0 +1,21 @@
+<div class="container">
+
+    <div class="buscador">
+        <h6> Buscador:
+            <input type="text" class="" placeholder="Filtrar..." name='filterPost' [(ngModel)]="filterPost">
+        </h6>
+    </div>
+    <div *ngIf="dataCargada" class="flexBox">
+
+        <div *ngFor="let list of data | filter:filterPost">
+            <div class="flexBoxHijo">
+
+                <section (click)="detalles(list)">
+                    <h2>{{ list.display_title }}</h2>
+                    <img src="{{ list.multimedia.src}}" alt="">
+                    <h4>{{ list.byline }}</h4>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
